@@ -9,9 +9,9 @@ import sqlite3
 
 app = Flask(__name__)
 
-load_dotenv()
+# load_dotenv()
 
-app.secret_key = os.environ.get('SECRET_KEY')
+# app.secret_key = os.environ.get('SECRET_KEY')
 
 
 
@@ -214,4 +214,9 @@ def login():
 
 
     return render_template("login.html",alert=alert)
+
+
+
+# if __name__ == "__main__":
+#     app.run(host="0.0.0.0", port=5000)
 
