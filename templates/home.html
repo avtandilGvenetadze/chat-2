@@ -1,0 +1,19 @@
+{% extends 'base.html' %} {% block title %}home{% endblock %} {%block content%}
+
+
+<h2>Active User: {{ user}}</h2>
+
+
+<strong>connected users (user who has ever texted you or been texted by you) </strong>
+
+<ul>
+  {% for user in connected_users%}
+  <li>
+    <strong>{{user[0]}}</strong>
+</li>
+  {% endfor%}
+</ul>
+
+
+
+{%endblock%}

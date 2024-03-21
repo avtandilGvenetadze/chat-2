@@ -1,0 +1,62 @@
+ 
+
+ .nav-bar-link{
+    font-size: 20px;
+    margin-right: 10px;
+ }
+ 
+ .error{
+    color: brown;
+    font-size: 20px;
+ }
+
+ .chat-first-part{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+ }
+
+ .select_conversation_partner{
+    font-size: 20px;
+ }
+
+ .start_conversation{
+    font-size: 18px;
+ }
+ 
+ .message_list{
+        height: 50vh;
+        overflow: auto;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        border: 5px solid black;
+        padding:25px 15px 25px 30px;
+      }
+
+ .message{
+        margin-bottom: 20px;
+       list-style-type:none;
+       font-size: larger;
+       font-weight: bolder;
+      } 
+
+
+.send_message{
+    display: block;
+    font-size: 18px;
+    margin: 15px;
+}
+
+.textarea{
+    height: 40px;
+}
+
+@media(max-width:700px)
+{
+    .chat-first-part{
+        display: block;
+    }
+    .select_conversation_partner{
+        margin-bottom: 15px;
+     }
+}

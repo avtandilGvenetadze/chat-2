@@ -1,0 +1,86 @@
+{% extends 'base.html' %} {% block title %} Chat {% endblock %} {%block content%}
+
+<div class="chat-first-part">
+    
+<h3>Active User: {{ user}}</h3>
+
+
+
+<form method="post">
+  <select name="conversation_partner" class="select_conversation_partner">
+    <option disabled selected>  Select a user to chat with </option>
+    {% for user in all_user %}
+    <option>{{ user[0] }}</option>
+    {% endfor %}
+  </select>
+  <button type="submit" name="conversation_partner" class="start_conversation">Start Conversation</button>
+</form>
+
+
+<h3>Chating User: {{conversation_partner}}</h3>
+
+</div>
+
+<ul class="message_list"></ul>
+
+
+
+
+<form method="post">
+  <button type="submit" name="send_message" class="send_message"> Send Message</button>
+    <textarea name="message" id="message" cols="30" rows="10"  class="textarea" placeholder="Write Message"></textarea>
+    
+</form>
+
+  
+<script>
+
+$(document).ready(function() {
+    const message_list = document.querySelector(".message_list");
+    let previousDataLength = 0;
+
+    function scrollToBottom() {
+        message_list.scrollTop = message_list.scrollHeight;
+    }
+
+    function updateMessages() {
+        $.get('/update_messages', function(data) {
+            if (data && Array.isArray(data)) {
+                if (data.length > previousDataLength) {
+                   
+                    message_list.innerHTML = ""; 
+
+                    data.forEach((element) => {
+                        let li_element_sender = document.createElement("li");
+                        let li_element_message = document.createElement("li");
+
+                        li_element_sender.innerText = "From: " + element[1];
+                        li_element_sender.classList.add("sender");
+
+                        li_element_message.innerText = element[3];
+                        li_element_message.classList.add("message");
+
+                        message_list.appendChild(li_element_sender);
+                        message_list.appendChild(li_element_message);
+                    });
+
+                    scrollToBottom(); 
+                }
+               
+                previousDataLength = data.length;
+            }
+        });
+    }
+
+   
+    updateMessages();
+
+ 
+    setInterval(updateMessages, 2500);
+});
+
+    </script>
+   
+
+
+{%endblock%}

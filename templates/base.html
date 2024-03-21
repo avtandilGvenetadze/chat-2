@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <link rel="stylesheet" href="../static/style.css">
+    <title>{% block title %}home{% endblock %}</title>
+  </head>
+  <body>
+    <nav class="nav-bar">
+      <a class="nav-bar-link" href="/login" id="login">Login</a>
+      <a class="nav-bar-link" href="/sign-up" id="signUp"> Sign Up</a>
+      <a class="nav-bar-link" href="/" id="home">Home</a>
+      <a class="nav-bar-link" href="/chat" id="chat">Chat</a>
+      <a class="nav-bar-link" href="/logout" id="logout">Logout</a>
+     
+    </nav>
+
+    <h3 class="error">{{ alert }}</h3>
+  
+<script src="../static/script.js"></script>
+  </body>
+
+  <div class="container">{%block content%} {%endblock%}</div>
+</html>
