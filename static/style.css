@@ -10,6 +10,11 @@
     font-size: 20px;
  }
 
+ .regular_input{
+   font-size: 20px;
+   margin-bottom: 20px;
+
+ }
  .chat-first-part{
     display: flex;
     justify-content: space-around;
@@ -25,7 +30,7 @@
  }
  
  .message_list{
-        height: 50vh;
+        height: 40vh;
         overflow: auto;
         word-wrap: break-word;
         overflow-wrap: break-word;
@@ -34,24 +39,37 @@
       }
 
  .message{
-        margin-bottom: 20px;
+        margin-bottom: 15px;
        list-style-type:none;
-       font-size: larger;
-       font-weight: bolder;
+       font-weight:600;
+       font-size: 18px;
       } 
 
+.login-button{
+   display: block;
+   font-size: 18px;
+   margin: 15px;
+}
+
+.submit-signup{
+   display: block;
+   font-size: 18px;
+   margin: 15px;
+}
 
 .send_message{
     display: block;
-    font-size: 18px;
+    font-size: 19px;
     margin: 15px;
 }
 
 .textarea{
-    height: 40px;
+    height: 50px;
+    width: 70%;
+    max-width: 600px;
 }
 
-@media(max-width:700px)
+@media(max-width:800px)
 {
     .chat-first-part{
         display: block;

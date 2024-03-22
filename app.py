@@ -5,19 +5,49 @@ from flask_session import Session
 from functools import wraps
 from werkzeug.security import check_password_hash, generate_password_hash
 import sqlite3
+import requests
+import threading
+import time
+
 
 
 app = Flask(__name__)
 
-# load_dotenv()
+load_dotenv()
 
-# app.secret_key = os.environ.get('SECRET_KEY')
+app.secret_key = os.environ.get('SECRET_KEY')
 
 
 
 app.config["SESSION_PERMANENT"] = False
 app.config["SESSION_TYPE"] = "filesystem"
 Session(app)
+
+
+
+def initialize_database():
+    if not os.path.exists('database.db'):
+        with sqlite3.connect('database.db') as connection:
+            cursor = connection.cursor()
+            cursor.execute("""
+                CREATE TABLE IF NOT EXISTS messages (
+                    id INTEGER PRIMARY KEY,
+                    sender TEXT NOT NULL,
+                    receiver TEXT NOT NULL,
+                    message TEXT NOT NULL
+                )
+            """)
+            cursor.execute("""
+                CREATE TABLE IF NOT EXISTS users (
+                    id INTEGER PRIMARY KEY,
+                    username TEXT NOT NULL UNIQUE,
+                    password TEXT NOT NULL
+                )
+            """)
+            connection.commit()
+
+initialize_database()
+
 
 
 
@@ -31,12 +61,6 @@ def after_request(response):
 
 
 def login_required(f):
-    """
-    Decorate routes to require login.
-
-    # http://flask.pocoo.org/docs/0.12/patterns/viewdecorators/
-    # """
-
     @wraps(f)
     def decorated_function(*args, **kwargs):
         if session.get("user_id") is None:
@@ -215,6 +239,26 @@ def login():
 
 
     return render_template("login.html",alert=alert)
+
+
+
+
+@app.route('/keep-alive')
+def keep_alive_endpoint():
+    return 'Keep-alive request received'
+
+
+
+def keep_alive():
+    while True:
+        response = requests.get('https://chat-2-8v1g.onrender.com/keep-alive')
+        print('Keep-alive request sent:', response.status_code)
+        time.sleep(300)
+
+
+keep_alive_thread = threading.Thread(target=keep_alive)
+keep_alive_thread.start()
+
 
 
 
