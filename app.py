@@ -251,7 +251,7 @@ def keep_alive_endpoint():
 
 def keep_alive():
     while True:
-        response = requests.get('https://chat-2-8v1g.onrender.com/keep-alive')
+        response = requests.get('https://chat-pyq6.onrender.com/keep-alive')
         print('Keep-alive request sent:', response.status_code)
         time.sleep(300)
 
