@@ -420,3 +420,11 @@ body::before {
 .message_list{
     height:30vh
 }
+.send_message{
+    color: #404242;
+ 
+}
+.send_message_container{
+    display: flex;
+    align-items: center;
+}
