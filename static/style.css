@@ -413,3 +413,10 @@ body::before {
         margin-bottom: 15px;
     }
 }
+.container{
+    margin-right: 10px;
+    margin-left: 10px;
+}
+.message_list{
+    height:30vh
+}
