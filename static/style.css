@@ -1,8 +1,150 @@
  
 
- .nav-bar-link{
-    font-size: 20px;
+ 
+/* Import neon / futuristic fonts */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Press+Start+2P&display=swap');
+
+/* GLOBAL STYLES */
+body {
+    font-family: 'Orbitron', sans-serif;
+    background: #0a0a0a; /* dark black background */
+    color: #e0e0e0;
+    margin: 0;
+    padding: 0;
+}
+
+/* NAV BAR */
+.nav-bar {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background: linear-gradient(90deg, #1c1c1c, #111);
+    padding: 15px 0;
+    box-shadow: 0 0 20px #ff00ff, 0 0 40px #00ffff;
     margin-right: 10px;
+}
+
+.nav-bar-link {
+    color: #fff;
+    font-weight: 700;
+    text-decoration: none;
+    position: relative;
+    padding: 8px 15px;
+    transition: 0.3s;
+}
+
+/* Click animation */
+.nav-bar-link:active {
+    transform: scale(0.95);
+    text-shadow: 0 0 10px #ff00ff, 0 0 20px #00ffff;
+}
+
+  
+
+/* INPUTS */
+.regular_input, .textarea, .select_conversation_partner {
+    background: #111;
+    border: 2px solid #333;
+    border-radius: 12px;
+    padding: 10px;
+    color: #fff;
+    font-size: 18px;
+    width: 90%;
+    max-width: 600px;
+    margin-bottom: 20px;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Click/focus animation */
+.regular_input:focus, .textarea:focus, .select_conversation_partner:focus {
+    border-color: #ff00ff;
+    box-shadow: 0 0 10px #ff00ff, 0 0 20px #00ffff;
+    outline: none;
+}
+
+/* BUTTONS */
+.login-button, .submit-signup, .send_message, .start_conversation {
+    background: linear-gradient(135deg, #ff00ff, #00ffff);
+    border: none;
+    border-radius: 12px;
+    color: #000;
+    font-weight: 700;
+    padding: 10px 25px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+/* Click animation */
+.login-button:active, .submit-signup:active, .send_message:active, .start_conversation:active {
+    transform: scale(0.95);
+    box-shadow: 0 0 15px #ff00ff, 0 0 30px #00ffff;
+}
+
+/* CHAT BOX */
+.message_list {
+    height: 50vh;
+    overflow-y: auto;
+    border: 3px solid #333;
+    border-radius: 15px;
+    padding: 25px;
+    background: #111;
+    box-shadow: inset 0 0 15px #ff00ff33, inset 0 0 30px #00ffff33;
+}
+
+/* MESSAGES */
+.message {
+    margin-bottom: 15px;
+    list-style-type: none;
+    font-size: 18px;
+    font-weight: 500;
+    transition: transform 0.2s, text-shadow 0.2s;
+}
+
+/* Sender vs Receiver */
+.message.sender {
+    color: #ff00ff;
+}
+.message.receiver {
+    color: #00ffff;
+}
+
+/* On click animation for messages */
+.message:active {
+    transform: scale(1.05);
+    text-shadow: 0 0 10px #ff00ff, 0 0 20px #00ffff;
+}
+
+/* ERROR MESSAGES */
+.error {
+    color: #ff0044;
+    font-weight: 700;
+    font-size: 20px;
+    display: inline-block;
+    animation: shake 0.5s ease-in-out;
+}
+
+/* Shake animation */
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    20%, 60% { transform: translateX(-10px); }
+    40%, 80% { transform: translateX(10px); }
+}
+
+/* RESPONSIVE */
+@media(max-width:800px) {
+    .chat-first-part {
+        display: block;
+    }
+    .select_conversation_partner {
+        margin-bottom: 15px;
+    }
+}
+
+
+
+
+ .nav-bar-link{
+    font-size: 17px;
  }
  
  .error{
@@ -23,7 +165,7 @@
 
  .select_conversation_partner{
     font-size: 20px;
-    color: black;
+   
  }
 
  .start_conversation{
@@ -35,8 +177,9 @@
         overflow: auto;
         word-wrap: break-word;
         overflow-wrap: break-word;
-        border: 5px solid black;
         padding:25px 15px 25px 30px;
+         margin-left: 10px;
+    margin-right: 10px;
       }
 
  .message{
@@ -44,6 +187,7 @@
        list-style-type:none;
        font-weight:600;
        font-size: 18px;
+       color: #00ffff;
       } 
 
 .login-button{
@@ -69,6 +213,8 @@
     width: 70%;
     max-width: 600px;
     font-size: 17px;
+    margin-left: 10px;
+    margin-right: 10px;
 }
 
 @media(max-width:800px)
@@ -79,4 +225,191 @@
     .select_conversation_partner{
         margin-bottom: 15px;
      }
+}
+
+
+
+
+
+/* Import neon / futuristic fonts */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Press+Start+2P&display=swap');
+
+/* GLOBAL STYLES */
+body {
+    font-family: 'Orbitron', sans-serif;
+    background: #0a0a0a; /* dark black background */
+    color: #e0e0e0;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+/* NEON ANIMATED BACKGROUND */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: repeating-linear-gradient(
+        45deg,
+        #ff00ff33 0 2px,
+        #00ffff33 2px 4px
+    );
+    z-index: -1;
+    animation: moveBG 20s linear infinite;
+    opacity: 0.15;
+}
+
+@keyframes moveBG {
+    0% { transform: translate(0, 0) rotate(0deg); }
+    100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* NAV BAR */
+.nav-bar {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background: linear-gradient(90deg, #111, #1c1c1c);
+    padding: 15px 0;
+    box-shadow: 0 0 20px #ff00ff, 0 0 40px #00ffff;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.nav-bar-link {
+    color: #fff;
+    font-weight: 700;
+    text-decoration: none;
+    position: relative;
+    padding: 8px 15px;
+    transition: all 0.3s ease-in-out;
+}
+
+.nav-bar-link:active {
+    transform: scale(0.95);
+    text-shadow: 0 0 10px #ff00ff, 0 0 20px #00ffff;
+}
+
+/* INPUTS */
+.regular_input, .textarea, .select_conversation_partner {
+    background: #111;
+    border: 2px solid #333;
+    border-radius: 12px;
+    padding: 12px;
+    color: #fff;
+    font-size: 18px;
+    width: 90%;
+    max-width: 600px;
+    margin-bottom: 20px;
+    transition: all 0.3s ease-in-out;
+}
+
+.regular_input:focus, .textarea:focus, .select_conversation_partner:focus {
+    border-color: #ff00ff;
+    box-shadow: 0 0 10px #ff00ff, 0 0 20px #00ffff;
+    outline: none;
+}
+
+/* BUTTONS */
+.login-button, .submit-signup, .send_message, .start_conversation {
+    background: linear-gradient(135deg, #ff00ff, #00ffff);
+    border: none;
+    border-radius: 12px;
+    color: #000;
+    font-weight: 700;
+    padding: 10px 25px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.login-button:active, .submit-signup:active, .send_message:active, .start_conversation:active {
+    transform: scale(0.95);
+    box-shadow: 0 0 15px #ff00ff, 0 0 30px #00ffff;
+}
+
+/* CHAT BOX */
+.message_list {
+    position: relative;
+    height: 50vh;
+    overflow-y: auto;
+    border: 3px solid #333;
+    border-radius: 15px;
+    padding: 25px;
+    background: #111;
+    box-shadow: inset 0 0 15px #ff00ff33, inset 0 0 30px #00ffff33;
+}
+
+/* Animated background lines inside chat */
+.message_list::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(
+        30deg,
+        #ff00ff22 0 2px,
+        #00ffff22 2px 4px
+    );
+    z-index: 0;
+    animation: moveChatBG 30s linear infinite;
+    border-radius: 15px;
+}
+
+@keyframes moveChatBG {
+    0% { transform: translate(0, 0) rotate(0deg); }
+    100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* MESSAGES */
+.message {
+    position: relative;
+    margin-bottom: 15px;
+    list-style-type: none;
+    font-size: 18px;
+    font-weight: 500;
+    transition: transform 0.2s, text-shadow 0.2s;
+    z-index: 1;
+}
+
+.message.sender {
+    color: #ff00ff;
+}
+.message.receiver {
+    color: #00ffff;
+}
+
+.message:active {
+    transform: scale(1.05);
+    text-shadow: 0 0 10px #ff00ff, 0 0 20px #00ffff;
+}
+
+/* ERROR MESSAGES */
+.error {
+    color: #ff0044;
+    font-weight: 700;
+    font-size: 20px;
+    display: inline-block;
+    animation: shake 0.5s ease-in-out;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    20%, 60% { transform: translateX(-10px); }
+    40%, 80% { transform: translateX(10px); }
+}
+
+/* RESPONSIVE */
+@media(max-width:800px) {
+    .chat-first-part {
+        display: block;
+    }
+    .select_conversation_partner {
+        margin-bottom: 15px;
+    }
 }
